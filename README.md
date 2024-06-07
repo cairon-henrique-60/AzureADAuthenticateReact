@@ -1,6 +1,6 @@
 # Autenticação Azure
 
-Este projeto faz a autenticação por Azure ID e logo encaminha para a URL definida na variavel de ambiente VITE_REDIRECT
+This project authenticates using Azure ID
 
 ## Instalação de Dependências
 

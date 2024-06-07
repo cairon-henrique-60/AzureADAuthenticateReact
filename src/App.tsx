@@ -1,38 +1,35 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { useMsal, useMsalAuthentication } from "@azure/msal-react";
 import { AccountInfo, InteractionType } from "@azure/msal-browser";
 
-import Loader from "./Components/Loader";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function App() {
   useMsalAuthentication(InteractionType.Redirect);
   const { accounts } = useMsal();
   const redirectUrl = import.meta.env.VITE_REDIRECT;
 
-  const [m_strUser, setm_strUser] = useState<AccountInfo | null>(null);
+  const [user, setUser] = useState<AccountInfo | null>(null);
 
   useEffect(() => {
     async function fetchUser() {
       try {
         const username = accounts[0];
         if (username) {
-          setm_strUser(username);
-          console.log(import.meta.env.VITE_REDIRECT);
-          window.location.href = `${redirectUrl}/userName=${username.idTokenClaims?.name}userEmail=${username.idTokenClaims?.preferred_username}`;
+          setUser(username);
         }
       } catch (e) {
-        console.log(e);
+        setUser(null);
       }
     }
 
     fetchUser();
   }, [accounts, redirectUrl]);
 
-  if (m_strUser?.username)
+  if (user?.username)
     return (
       <div className="App">
-        <div>User: {m_strUser?.username}</div>
+        <div>User: {user?.username || "Error"}</div>
       </div>
     );
   else
@@ -50,7 +47,7 @@ function App() {
           background: "rgba(14, 14, 14, 0.3)",
         }}
       >
-        <Loader />
+        <CircularProgress />
       </div>
     );
 }
