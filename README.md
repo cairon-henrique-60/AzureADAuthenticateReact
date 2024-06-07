@@ -1,20 +1,27 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Autenticação Azure
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Este projeto faz a autenticação por Azure ID e logo encaminha para a URL definida na variavel de ambiente VITE_REDIRECT
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Instalação de Dependências
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+```bash
+$ yarn
+```
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Running
+```bash
+$ yarn dev
+```
+
+## Envirements
+
+VITE_CLIENT_ID=id do cliente Azure
+
+VITE_AUTHORITY=url de login do Azure
+
+VITE_REDIRECT=url para o site de redirecionamento
+
+## Stay in touch
+
+- Author - [Cairon Henrique](https://github.com/cairon-henrique-60)
+- LinkeIn - [https://www.linkedin.com/in/cairon-henrique-b88375224/](https://www.linkedin.com/in/cairon-henrique-b88375224/)
